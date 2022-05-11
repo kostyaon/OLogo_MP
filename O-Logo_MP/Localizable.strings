@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  O-Logo_MP
+
+  Created by Petrykevich, Kanstantsin on 11.05.22.
+  
+*/
+"tab_home" = "Home";
+"tab_news" = "News";
+"tab_search" = "Search";
+"tab_profile" = "Profile";
+"tab_more" = "More";
