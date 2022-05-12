@@ -47,8 +47,10 @@ extension NewsViewController {
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.estimatedSectionHeaderHeight = UITableView.automaticDimension
+        tableView.estimatedSectionHeaderHeight = 38
         tableView.separatorStyle = .none
+        tableView.contentInset = UIEdgeInsets(top: 32, left: 0, bottom: 0, right: 0)
+        tableView.register(nibWithClass: NewsTableViewCell.self)
     }
 }
 
@@ -69,7 +71,8 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withType: NewsTableViewCell.self, for: indexPath)
+        cell.configure(title: "Isum cillum excepteur", subtitle: "Isum cillum excepteur esse aliqua RT5117785 ", image: nil)
         cell.selectionStyle = .none
         return cell
     }
@@ -85,7 +88,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
+        return 37
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
