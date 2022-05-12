@@ -11,4 +11,8 @@ class ConfigValues {
     
     static let localizationFile = "Localizable"
     
+    // Font's
+    static let appFontRegular = "OpenSans-Regular"
+    static let appFontBold = "OpenSans-Bold"
+    static let appFontSemiBold = "OpenSans-SemiBold"
 }

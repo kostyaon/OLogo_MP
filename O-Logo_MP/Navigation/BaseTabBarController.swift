@@ -61,11 +61,11 @@ extension BaseTabBarController {
     
     func setupControllers() {
         viewControllers = [
-            createNavBar(for: ViewController(), title: "tab_home".localized(), image: "home_tab"),
-            createNavBar(for: ViewController(), title: "tab_news".localized(), image: "news_tab"),
-            createNavBar(for: ViewController(), title: "tab_search".localized(), image: "profile_tab"),
-            createNavBar(for: ViewController(), title: "tab_profile".localized(), image: "search_tab"),
-            createNavBar(for: ViewController(), title: "tab_more".localized(), image: "more_tab")
+            createNavBar(for: UIViewController(), title: "tab_home".localized(), image: "home_tab"),
+            createNavBar(for: NewsViewController(), title: "tab_news".localized(), image: "news_tab"),
+            createNavBar(for: UIViewController(), title: "tab_search".localized(), image: "profile_tab"),
+            createNavBar(for: UIViewController(), title: "tab_profile".localized(), image: "search_tab"),
+            createNavBar(for: UIViewController(), title: "tab_more".localized(), image: "more_tab")
         ]
     }
 }

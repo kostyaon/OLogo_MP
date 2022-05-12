@@ -16,6 +16,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .gray
+        setupNavBarAppearance()
         setupLogo()
     }
     
@@ -26,6 +28,20 @@ class BaseViewController: UIViewController {
 // MARK: - Private method's
 private
 extension BaseViewController {
+    
+    func setupNavBarAppearance() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.backgroundColor = .white
+        navBarAppearance.shadowImage = UIImage()
+        navBarAppearance.shadowColor = .clear
+        navigationItem.standardAppearance = navBarAppearance
+        navigationItem.scrollEdgeAppearance = navBarAppearance
+        
+        let buttonAppearance = UIBarButtonItemAppearance()
+        buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.systemOrange]
+        navigationItem.standardAppearance?.buttonAppearance = buttonAppearance
+    }
     
     func setupLogo() {
         let logoImageView = UIImageView()
