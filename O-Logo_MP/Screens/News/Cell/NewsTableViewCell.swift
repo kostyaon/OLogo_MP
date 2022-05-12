@@ -11,18 +11,21 @@ import UIKit
 class NewsTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
-    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var cardImageView: UIImageView!
-    
-    // MARK: - Properties
     
     // MARK: - Lifecycle method's
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setupUI()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.frame = contentView.frame.inset(by: cellInsets)
     }
     
     // MARK: - Helper method's
@@ -37,10 +40,15 @@ class NewsTableViewCell: UITableViewCell {
 // MARK: - Private
 extension NewsTableViewCell {
     
+    // Properties
+    var cellInsets: UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 14, bottom: 10, right: 18)
+    }
+    
     // Method's
     func setupUI() {
         setupLabels()
-        setupCardView()
+        setupContentView()
     }
     
     func setupLabels() {
@@ -51,7 +59,7 @@ extension NewsTableViewCell {
         cardImageView.image = UIImage(named: "card_sample")
     }
     
-    func setupCardView() {
-        cardView.setShadow(offset:  CGSize(width: 0, height: 10), radius: 4, opacity: 0.2)
+    func setupContentView() {
+        self.contentView.setShadow(offset:  CGSize(width: 0, height: 5), radius: 0, opacity: 0.1)
     }
 }

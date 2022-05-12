@@ -19,15 +19,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rqu-wN-og2">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Rqu-wN-og2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Pec-LX-FGM"/>
-                <constraint firstAttribute="bottom" secondItem="Rqu-wN-og2" secondAttribute="bottom" id="VeS-Ta-oQ4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Rqu-wN-og2" secondAttribute="bottom" id="VeS-Ta-oQ4"/>
                 <constraint firstItem="Rqu-wN-og2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="WZ9-Wp-Euu"/>
                 <constraint firstAttribute="trailing" secondItem="Rqu-wN-og2" secondAttribute="trailing" id="yQu-jQ-AgP"/>
             </constraints>

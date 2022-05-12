@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     
-    func setShadow(offset: CGSize, radius: CGFloat, opacity: Float, shadowRadius: CGFloat = 10, color: UIColor? = nil) {
+    func setShadow(offset: CGSize, radius: CGFloat, opacity: Float, shadowRadius: CGFloat = 5, color: UIColor? = nil) {
         layer.masksToBounds = false
         layer.cornerRadius = radius
         layer.shadowOffset = offset
