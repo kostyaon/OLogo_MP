@@ -23,4 +23,9 @@ extension UIColor {
     class var orange246: UIColor {
         .rgba(246, 143, 84)
     }
+    
+    // MARK: - Red
+    class var sacoRed: UIColor {
+        .rgba(255, 91, 111)
+    }
 }

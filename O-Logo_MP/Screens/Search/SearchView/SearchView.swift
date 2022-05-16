@@ -17,6 +17,18 @@ class SearchView: UIView {
     @IBOutlet weak var sortButton: OLogoButton!
     
     // MARK: - Properties
+    private lazy var notifyView: OLogoNotificNumberView = {
+        let notifyView = OLogoNotificNumberView()
+        notifyView.translatesAutoresizingMaskIntoConstraints = false
+        filterButton.addSubview(notifyView)
+        NSLayoutConstraint.activate([
+            notifyView.trailingAnchor.constraint(equalTo: filterButton.trailingAnchor),
+            notifyView.topAnchor.constraint(equalTo: filterButton.topAnchor),
+            notifyView.widthAnchor.constraint(equalToConstant: 15),
+            notifyView.heightAnchor.constraint(equalToConstant: 15)
+        ])
+        return notifyView
+    }()
     
     // MARK: - Lifecycle method's
     override init(frame: CGRect) {
@@ -30,6 +42,9 @@ class SearchView: UIView {
     }
     
     // MARK: - Helper method's
+    func configureFilterButton(with number: Int) {
+        notifyView.configure(centerText: "\(number)")
+    }
     
 }
 
