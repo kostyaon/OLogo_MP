@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="O_Logo_MP" customModuleProvider="target">
             <connections>
                 <outlet property="searchView" destination="z1g-xd-6Nc" id="1NK-Vs-MYE"/>
+                <outlet property="tableView" destination="LPO-sp-hx6" id="1QS-nt-rNc"/>
                 <outlet property="view" destination="iN0-l3-epB" id="NAy-UY-ELm"/>
             </connections>
         </placeholder>
@@ -25,15 +26,24 @@
                         <constraint firstAttribute="height" constant="71" id="ZGA-eS-qkg"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LPO-sp-hx6">
+                    <rect key="frame" x="0.0" y="123" width="414" height="773"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="z1g-xd-6Nc" secondAttribute="trailing" id="1Jd-EL-4WY"/>
+                <constraint firstItem="LPO-sp-hx6" firstAttribute="top" secondItem="z1g-xd-6Nc" secondAttribute="bottom" constant="8" symbolic="YES" id="7Mx-Sl-CL4"/>
+                <constraint firstAttribute="bottom" secondItem="LPO-sp-hx6" secondAttribute="bottom" id="9Oy-K8-opl"/>
+                <constraint firstItem="LPO-sp-hx6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Gkb-hM-2OD"/>
                 <constraint firstItem="z1g-xd-6Nc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ebb-6M-NvQ"/>
                 <constraint firstItem="z1g-xd-6Nc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="gKV-yI-sWc"/>
+                <constraint firstItem="LPO-sp-hx6" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="pv2-Ub-Ygz"/>
             </constraints>
-            <point key="canvasLocation" x="133" y="102"/>
+            <point key="canvasLocation" x="131.8840579710145" y="101.78571428571428"/>
         </view>
     </objects>
 </document>

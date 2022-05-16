@@ -36,7 +36,6 @@ extension NewsViewController {
         return 1
     }
     
-    
     // Method's
     func setupUI() {
         setupTableView()
