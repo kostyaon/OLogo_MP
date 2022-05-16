@@ -51,7 +51,7 @@ extension BaseTabBarController {
             tabBar.standardAppearance = tabBarAppearance
             tabBar.scrollEdgeAppearance = tabBarAppearance
         } else {
-            tabBar.barTintColor = color;
+            tabBar.barTintColor = color
             UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], for: .normal)
         }
         
@@ -63,8 +63,8 @@ extension BaseTabBarController {
         viewControllers = [
             createNavBar(for: UIViewController(), title: "tab_home".localized(), image: "home_tab"),
             createNavBar(for: NewsViewController(), title: "tab_news".localized(), image: "news_tab"),
-            createNavBar(for: UIViewController(), title: "tab_search".localized(), image: "profile_tab"),
-            createNavBar(for: UIViewController(), title: "tab_profile".localized(), image: "search_tab"),
+            createNavBar(for: SearchViewController(), title: "tab_search".localized(), image: "search_tab"),
+            createNavBar(for: UIViewController(), title: "tab_profile".localized(), image: "profile_tab"),
             createNavBar(for: UIViewController(), title: "tab_more".localized(), image: "more_tab")
         ]
     }

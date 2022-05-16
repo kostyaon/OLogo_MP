@@ -1,0 +1,89 @@
+//
+//  SearchView.swift
+//  O-Logo_MP
+//
+//  Created by Petrykevich, Kanstantsin on 12.05.22.
+//
+
+import Foundation
+import UIKit
+
+class SearchView: UIView {
+    
+    // MARK: - Outlets
+    @IBOutlet var contentView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var filterButton: OLogoButton!
+    @IBOutlet weak var sortButton: OLogoButton!
+    
+    // MARK: - Properties
+    
+    // MARK: - Lifecycle method's
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    // MARK: - Helper method's
+    
+}
+
+// MARK: - Private
+private
+extension SearchView {
+    
+    // Properties
+    
+    // Method's
+    func setupUI() {
+        setupContentView()
+        setupSearchBar()
+        setupButtons()
+    }
+    
+    func setupContentView() {
+        contentView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        contentView.setShadow(offset: CGSize(width: 0, height: 5), radius: 20, opacity: 0.1)
+    }
+    
+    func setupSearchBar() {
+        searchBar.delegate = self
+        
+        let searchBarTextField = searchBar.searchTextField
+        searchBarTextField.font = .semiBold(withSize: 14)
+        searchBarTextField.placeholder = "search_placeholder".localized()
+        searchBarTextField.layer.cornerRadius = 17
+        searchBarTextField.layer.masksToBounds = true
+        
+        let firstLayer = searchBarTextField.layer.sublayers?[0] ?? CALayer()
+        let ourLayer = firstLayer.sublayers?[0] ?? CALayer()
+        ourLayer.backgroundColor = UIColor.red.cgColor
+    }
+    
+    func setupButtons() {
+        filterButton.style = .circle
+        filterButton.configureWith(image: UIImage(named: "filter_icon"), renderingMode: .alwaysTemplate)
+        sortButton.style = .circle
+        sortButton.configureWith(image: UIImage(named: "sort_icon"), renderingMode: .alwaysTemplate)
+    }
+    
+    func commonInit() {
+        Bundle.main.loadNibNamed("SearchView", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        setupUI()
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension SearchView: UISearchBarDelegate {
+    
+    
+}
