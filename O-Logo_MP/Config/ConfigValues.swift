@@ -9,6 +9,10 @@ import Foundation
 
 class ConfigValues {
     
+    // Token
+    static let token = UserDefaults.standard.string(forKey: "token")
+    
+    // Localization
     static let localizationFile = "Localizable"
     
     // Font's

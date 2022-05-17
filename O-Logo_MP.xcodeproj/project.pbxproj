@@ -35,6 +35,10 @@
 		6E091497282D828400282C62 /* OLogoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E091496282D828400282C62 /* OLogoButton.swift */; };
 		6E09149B282D85FF00282C62 /* +UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E09149A282D85FF00282C62 /* +UIColor.swift */; };
 		6E09149D2832ACF100282C62 /* OLogoNotificView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E09149C2832ACF100282C62 /* OLogoNotificView.swift */; };
+		6E852F1F2834156E00D24B8F /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E852F1E2834156E00D24B8F /* EndpointType.swift */; };
+		6E852F212834198900D24B8F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E852F202834198900D24B8F /* APIManager.swift */; };
+		6E852F2328341B1000D24B8F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E852F2228341B1000D24B8F /* Router.swift */; };
+		900D775F02DDB9F91A676ECB /* Pods_O_Logo_MP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5E4C3365CA5A861AF26CDC /* Pods_O_Logo_MP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,12 @@
 		6E091496282D828400282C62 /* OLogoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLogoButton.swift; sourceTree = "<group>"; };
 		6E09149A282D85FF00282C62 /* +UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+UIColor.swift"; sourceTree = "<group>"; };
 		6E09149C2832ACF100282C62 /* OLogoNotificView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLogoNotificView.swift; sourceTree = "<group>"; };
+		6E852F1E2834156E00D24B8F /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
+		6E852F202834198900D24B8F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		6E852F2228341B1000D24B8F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		9EEE7BBEB5B55A54CC5FF133 /* Pods-O-Logo_MP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-O-Logo_MP.release.xcconfig"; path = "Target Support Files/Pods-O-Logo_MP/Pods-O-Logo_MP.release.xcconfig"; sourceTree = "<group>"; };
+		CA8263017E64E9723FBA6CDB /* Pods-O-Logo_MP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-O-Logo_MP.debug.xcconfig"; path = "Target Support Files/Pods-O-Logo_MP/Pods-O-Logo_MP.debug.xcconfig"; sourceTree = "<group>"; };
+		EA5E4C3365CA5A861AF26CDC /* Pods_O_Logo_MP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_O_Logo_MP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,17 +85,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900D775F02DDB9F91A676ECB /* Pods_O_Logo_MP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		424D153F51A1BD176030833B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA5E4C3365CA5A861AF26CDC /* Pods_O_Logo_MP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6E091439282B9D3900282C62 = {
 			isa = PBXGroup;
 			children = (
 				6E091444282B9D3900282C62 /* O-Logo_MP */,
 				6E091443282B9D3900282C62 /* Products */,
+				E6893756C61E73C60246D507 /* Pods */,
+				424D153F51A1BD176030833B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +121,7 @@
 		6E091444282B9D3900282C62 /* O-Logo_MP */ = {
 			isa = PBXGroup;
 			children = (
+				6E852F1D2834155000D24B8F /* Networking */,
 				6E091495282D826300282C62 /* CustomViews */,
 				6E091475282D092900282C62 /* CustomAssets */,
 				6E09146B282BFEDB00282C62 /* Screens */,
@@ -229,6 +251,25 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		6E852F1D2834155000D24B8F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				6E852F1E2834156E00D24B8F /* EndpointType.swift */,
+				6E852F202834198900D24B8F /* APIManager.swift */,
+				6E852F2228341B1000D24B8F /* Router.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E6893756C61E73C60246D507 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA8263017E64E9723FBA6CDB /* Pods-O-Logo_MP.debug.xcconfig */,
+				9EEE7BBEB5B55A54CC5FF133 /* Pods-O-Logo_MP.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,9 +277,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E091456282B9D3A00282C62 /* Build configuration list for PBXNativeTarget "O-Logo_MP" */;
 			buildPhases = (
+				5C62BB9D4A1D02B8A6315882 /* [CP] Check Pods Manifest.lock */,
 				6E09143E282B9D3900282C62 /* Sources */,
 				6E09143F282B9D3900282C62 /* Frameworks */,
 				6E091440282B9D3900282C62 /* Resources */,
+				8927E676039FEF712F684250 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,13 +346,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5C62BB9D4A1D02B8A6315882 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-O-Logo_MP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8927E676039FEF712F684250 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-O-Logo_MP/Pods-O-Logo_MP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-O-Logo_MP/Pods-O-Logo_MP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-O-Logo_MP/Pods-O-Logo_MP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6E09143E282B9D3900282C62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6E09148A282D255B00282C62 /* +UIView.swift in Sources */,
+				6E852F212834198900D24B8F /* APIManager.swift in Sources */,
 				6E09149B282D85FF00282C62 /* +UIColor.swift in Sources */,
+				6E852F1F2834156E00D24B8F /* EndpointType.swift in Sources */,
 				6E09147E282D0CA000282C62 /* +UITableView.swift in Sources */,
 				6E091486282D13E600282C62 /* NewsTableViewCell.swift in Sources */,
 				6E09145B282B9EFE00282C62 /* BaseTabBarController.swift in Sources */,
@@ -318,6 +405,7 @@
 				6E091446282B9D3900282C62 /* AppDelegate.swift in Sources */,
 				6E091483282D120B00282C62 /* +UIFont.swift in Sources */,
 				6E091448282B9D3900282C62 /* SceneDelegate.swift in Sources */,
+				6E852F2328341B1000D24B8F /* Router.swift in Sources */,
 				6E09148D282D7DE600282C62 /* SearchViewController.swift in Sources */,
 				6E091474282D070B00282C62 /* LabelHeaderView.swift in Sources */,
 				6E091492282D806200282C62 /* SearchView.swift in Sources */,
@@ -458,6 +546,7 @@
 		};
 		6E091457282B9D3A00282C62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA8263017E64E9723FBA6CDB /* Pods-O-Logo_MP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -486,6 +575,7 @@
 		};
 		6E091458282B9D3A00282C62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EEE7BBEB5B55A54CC5FF133 /* Pods-O-Logo_MP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
