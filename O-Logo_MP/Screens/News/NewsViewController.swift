@@ -91,7 +91,8 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withType: NewsTableViewCell.self, for: indexPath)
-        cell.configure(title: news[indexPath.row].title, subtitle: news[indexPath.row].description, image: nil)
+        let cellNews = news[indexPath.row]
+        cell.configure(title: cellNews.title, subtitle: cellNews.description, imageURL: URL(string: cellNews.image))
         cell.selectionStyle = .none
         return cell
     }
@@ -111,6 +112,6 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return 108
     }
 }

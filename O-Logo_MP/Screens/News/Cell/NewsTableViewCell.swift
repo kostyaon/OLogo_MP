@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class NewsTableViewCell: UITableViewCell {
     
@@ -29,10 +30,10 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     // MARK: - Helper method's
-    func configure(title: String, subtitle: String, image: UIImage?) {
+    func configure(title: String, subtitle: String, imageURL: URL?) {
         titleLabel.text = title
         subtitleLabel.text = subtitle
-        cardImageView.image = image ?? UIImage(named: "card_sample")
+        cardImageView.kf.setImage(with: imageURL)
     }
     
 }
@@ -56,7 +57,6 @@ extension NewsTableViewCell {
         titleLabel.textColor = .black
         subtitleLabel.font = .regular(withSize: 12)
         subtitleLabel.textColor = .black
-        cardImageView.image = UIImage(named: "card_sample")
     }
     
     func setupContentView() {
