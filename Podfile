@@ -7,5 +7,6 @@ target 'O-Logo_MP' do
 
   # Pods for O-Logo_MP
   pod 'Alamofire' 
-
+  pod 'Kingfisher', '~> 7.0'
+  
 end
