@@ -15,9 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         guard let _ = UserDefaults.standard.string(forKey: "token") else {
+            UserDefaults.standard.set("ce1a235a6e59fc2e49d7970c1b84d231", forKey: "token")
             return true
         }
-        UserDefaults.standard.set("ce1a235a6e59fc2e49d7970c1b84d231", forKey: "token")
         return true
     }
 

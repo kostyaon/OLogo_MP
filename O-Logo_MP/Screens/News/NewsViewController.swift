@@ -14,13 +14,21 @@ class NewsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    
+    private let viewModel = NewsViewModel()
+    private var news: [NewsResponse.News] = []
     
     // MARK: - Lifecycle method's
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        setupViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadData()
     }
     
     // MARK: - Helper method's
@@ -51,6 +59,18 @@ extension NewsViewController {
         tableView.contentInset = UIEdgeInsets(top: 32, left: 0, bottom: 0, right: 0)
         tableView.register(nibWithClass: NewsTableViewCell.self)
     }
+    
+    func setupViewModel() {
+        viewModel.updateUI = { [weak self] in
+            guard let this = self else { return }
+            this.news = self?.viewModel.headlineNews ?? []
+            this.tableView.reloadData()
+        }
+    }
+    
+    func loadData() {
+        viewModel.getHeadlineNews(page: 1)
+    }
 }
 
 // MARK: - TableView Delegate and DataSource
@@ -63,7 +83,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 10
+            return news.count
         default:
             return 0
         }
@@ -71,7 +91,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withType: NewsTableViewCell.self, for: indexPath)
-        cell.configure(title: "Isum cillum excepteur", subtitle: "Isum cillum excepteur esse aliqua RT5117785 ", image: nil)
+        cell.configure(title: news[indexPath.row].title, subtitle: news[indexPath.row].description, image: nil)
         cell.selectionStyle = .none
         return cell
     }

@@ -23,17 +23,23 @@ enum SearchSort: String {
 
 enum Router {
     
-    case searchIn(query: String, parameters: [SearchParameters]?, from: String?, to: String?, sortBy: SearchSort?, pageNumber: String?)
+    case searchIn(query: String, parameters: [SearchParameters]?, from: String?, to: String?, sortBy: SearchSort?, pageNumber: Int?)
+    case topHeadlines(pageNumber: Int)
 }
 
 extension Router: EndpointType {
     
     var baseURL: String {
-        return "https://gnews.io/api/v4/search"
+        return "https://gnews.io/api/v4"
     }
     
     var path: String? {
-       return nil
+        switch self {
+        case .searchIn:
+            return "/search"
+        case .topHeadlines:
+            return "/top-headlines"
+        }
     }
     
     var httpMethod: HTTPMethod {
@@ -49,13 +55,19 @@ extension Router: EndpointType {
             }
             return [
                 "q": query,
-                "max": 50,
-                "page": pageNumber ?? "",
+                "max": 20,
+                "page": pageNumber ?? 1,
                 "in": queryParameters,
                 "from": from ?? "",
                 "to": to ?? "",
                 "sortby": sortBy?.rawValue ?? "",
-                "token": ConfigValues.token
+                "token": ConfigValues.token ?? ""
+            ]
+        case .topHeadlines(let pageNumber):
+            return [
+                "max": 20,
+                "page": pageNumber ?? 1,
+                "token": ConfigValues.token ?? ""
             ]
         }
     }
