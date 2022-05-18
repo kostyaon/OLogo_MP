@@ -71,6 +71,14 @@ extension SearchViewController {
             guard let this = self else { return }
             this.loadData()
         }
+        searchView.onFilter = { [weak self] in
+            guard let this = self else { return }
+            this.navigationController?.pushViewController(FilterViewController(), animated: true)
+        }
+        searchView.onSort = { [weak self] in
+            guard let this = self else { return }
+            this.navigationController?.pushViewController(FilterViewController(), animated: true)
+        }
     }
     
     func setupViewModel() {

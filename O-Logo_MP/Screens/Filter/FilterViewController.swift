@@ -13,10 +13,11 @@ class FilterViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-//    @IBOutlet weak var fromDateView: DateView!
-//    @IBOutlet weak var toDateView: DateView!
+    @IBOutlet weak var fromDateView: DateView!
+    @IBOutlet weak var toDateView: DateView!
     @IBOutlet weak var searchLabel: UILabel!
     @IBOutlet weak var searchInLabel: UILabel!
+    @IBOutlet weak var applyButton: OLogoButton!
     
     // MARK: - Properties
     override var isClearButtonHidden: Bool { false }
@@ -38,9 +39,17 @@ extension FilterViewController {
     
     // Properties
     
+    // @objc method's
+    @objc func onSearchIn() {
+        print("On search in")
+    }
+    
     // Method's
     func setupUI() {
         setupLabels()
+        setupDateViews()
+        setupButton()
+        setupSearchInAction()
     }
     
     func setupLabels() {
@@ -63,5 +72,24 @@ extension FilterViewController {
         searchInLabel.textColor = .sacoDarkGray
         searchInLabel.font = .semiBold(withSize: 14)
         searchInLabel.text = "search_in_all".localized()
+        searchInLabel.isUserInteractionEnabled = true
+    }
+    
+    func setupDateViews() {
+        fromDateView.configure(title: "filter_from".localized())
+        toDateView.configure(title: "filter_to".localized())
+    }
+    
+    func setupButton() {
+        applyButton.setTitle("apply_filter_button".localized(), for: .normal)
+        applyButton.onTap = { [weak self] in
+            guard let this = self else { return }
+            print("On Apply Filter button")
+        }
+    }
+    
+    func setupSearchInAction() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onSearchIn))
+        searchInLabel.addGestureRecognizer(tapGesture)
     }
 }

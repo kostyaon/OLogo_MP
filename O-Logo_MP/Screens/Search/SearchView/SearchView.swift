@@ -18,6 +18,8 @@ class SearchView: UIView {
     
     // MARK: - Properties
     var onSearch: ((String) -> ())?
+    var onFilter: Closure?
+    var onSort: Closure?
     var searchQuery: String {
         searchBar.text ?? ""
     }
@@ -43,6 +45,16 @@ class SearchView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
+    }
+    
+    @IBAction func onFilter(_ sender: Any) {
+        print("OnFilter tap")
+        onFilter?()
+    }
+    
+    @IBAction func onSort(_ sender: Any) {
+        print("OnSort tap")
+        onSort?()
     }
     
     // MARK: - Helper method's
@@ -94,7 +106,7 @@ extension SearchView {
     func setupButtons() {
         filterButton.style = .circle
         filterButton.configureWith(image: UIImage(named: "filter_icon"), renderingMode: .alwaysTemplate)
-        sortButton.style = .circle
+        sortButton.style = .circleSelected
         sortButton.configureWith(image: UIImage(named: "sort_icon"), renderingMode: .alwaysTemplate)
     }
     

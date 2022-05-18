@@ -16,6 +16,7 @@ class OLogoButton: UIButton {
     enum ButtonStyle {
         
         case circle
+        case circleSelected
         case filledWithOrange
     }
     
@@ -28,7 +29,9 @@ class OLogoButton: UIButton {
     }
     override var isSelected: Bool {
         didSet {
-            isSelected ? selectedState() : unselectedState()
+            if style == .circleSelected {
+                isSelected ? selectedState() : unselectedState()
+            }
         }
     }
     
@@ -69,10 +72,10 @@ extension OLogoButton {
     func setupButton() {
         setupTarget()
         switch style {
-        case .circle:
+        case .circle, .circleSelected:
             setupCircleButton()
         case .filledWithOrange:
-            break
+            setupFilledButton()
         }
     }
     
@@ -81,7 +84,7 @@ extension OLogoButton {
     }
     
     func selectedState() {
-        self.backgroundColor = .orange246
+        self.backgroundColor = .sacoBlue
         self.tintColor = .white
     }
     
@@ -97,5 +100,13 @@ extension OLogoButton {
         self.tintColor = .black
         self.imageView?.contentMode = .scaleAspectFit
         self.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 12), forImageIn: .normal)
+    }
+    
+    func setupFilledButton() {
+        self.layer.cornerRadius = self.bounds.height / 2
+        self.backgroundColor = .sacoBlue
+        self.tintColor = .white
+        self.setTitleColor(.white, for: .normal)
+        self.titleLabel?.font = .bold(withSize: 15)
     }
 }

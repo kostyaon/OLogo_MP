@@ -45,6 +45,9 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </backgroundConfiguration>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="onFilter:" destination="-1" eventType="touchUpInside" id="bW8-DW-hCj"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1e-A0-gvz" customClass="OLogoButton" customModule="O_Logo_MP" customModuleProvider="target">
                             <rect key="frame" x="315" y="0.0" width="46" height="46"/>
@@ -58,6 +61,9 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </backgroundConfiguration>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="onSort:" destination="-1" eventType="touchUpInside" id="aAR-xx-rhA"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
