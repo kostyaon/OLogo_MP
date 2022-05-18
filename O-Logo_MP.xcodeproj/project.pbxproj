@@ -36,6 +36,9 @@
 		6E09149B282D85FF00282C62 /* +UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E09149A282D85FF00282C62 /* +UIColor.swift */; };
 		6E09149D2832ACF100282C62 /* OLogoNotificView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E09149C2832ACF100282C62 /* OLogoNotificView.swift */; };
 		6E52ECF828355E4600EDAC4E /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E52ECF728355E4600EDAC4E /* FilterViewController.xib */; };
+		6E52ECFD28356BC900EDAC4E /* FilterSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52ECFC28356BC900EDAC4E /* FilterSearchViewController.swift */; };
+		6E52ECFF28356E6200EDAC4E /* OLogoSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E52ECFE28356E6200EDAC4E /* OLogoSwitch.swift */; };
+		6E52ED012835702700EDAC4E /* FilterSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E52ED002835702700EDAC4E /* FilterSearchViewController.xib */; };
 		6E852F1F2834156E00D24B8F /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E852F1E2834156E00D24B8F /* EndpointType.swift */; };
 		6E852F212834198900D24B8F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E852F202834198900D24B8F /* APIManager.swift */; };
 		6E852F2328341B1000D24B8F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E852F2228341B1000D24B8F /* Router.swift */; };
@@ -80,6 +83,9 @@
 		6E09149A282D85FF00282C62 /* +UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+UIColor.swift"; sourceTree = "<group>"; };
 		6E09149C2832ACF100282C62 /* OLogoNotificView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLogoNotificView.swift; sourceTree = "<group>"; };
 		6E52ECF728355E4600EDAC4E /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
+		6E52ECFC28356BC900EDAC4E /* FilterSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSearchViewController.swift; sourceTree = "<group>"; };
+		6E52ECFE28356E6200EDAC4E /* OLogoSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLogoSwitch.swift; sourceTree = "<group>"; };
+		6E52ED002835702700EDAC4E /* FilterSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterSearchViewController.xib; sourceTree = "<group>"; };
 		6E852F1E2834156E00D24B8F /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		6E852F202834198900D24B8F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		6E852F2228341B1000D24B8F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -264,8 +270,28 @@
 			children = (
 				6E091496282D828400282C62 /* OLogoButton.swift */,
 				6E09149C2832ACF100282C62 /* OLogoNotificView.swift */,
+				6E52ECFE28356E6200EDAC4E /* OLogoSwitch.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		6E52ECFA28356B9F00EDAC4E /* DateFilter */ = {
+			isa = PBXGroup;
+			children = (
+				6E852F3C2835571C00D24B8F /* DateView */,
+				6E852F3E2835571C00D24B8F /* FilterViewController.swift */,
+				6E52ECF728355E4600EDAC4E /* FilterViewController.xib */,
+			);
+			path = DateFilter;
+			sourceTree = "<group>";
+		};
+		6E52ECFB28356BAC00EDAC4E /* SearchInFilter */ = {
+			isa = PBXGroup;
+			children = (
+				6E52ECFC28356BC900EDAC4E /* FilterSearchViewController.swift */,
+				6E52ED002835702700EDAC4E /* FilterSearchViewController.xib */,
+			);
+			path = SearchInFilter;
 			sourceTree = "<group>";
 		};
 		6E852F1D2834155000D24B8F /* Networking */ = {
@@ -306,9 +332,8 @@
 		6E852F3B2835571C00D24B8F /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				6E852F3C2835571C00D24B8F /* DateView */,
-				6E852F3E2835571C00D24B8F /* FilterViewController.swift */,
-				6E52ECF728355E4600EDAC4E /* FilterViewController.xib */,
+				6E52ECFB28356BAC00EDAC4E /* SearchInFilter */,
+				6E52ECFA28356B9F00EDAC4E /* DateFilter */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -397,6 +422,7 @@
 				6E091494282D80FB00282C62 /* SearchView.xib in Resources */,
 				6E52ECF828355E4600EDAC4E /* FilterViewController.xib in Resources */,
 				6E091480282D119100282C62 /* OpenSans-Regular.ttf in Resources */,
+				6E52ED012835702700EDAC4E /* FilterSearchViewController.xib in Resources */,
 				6E091488282D162300282C62 /* NewsTableViewCell.xib in Resources */,
 				6E091481282D119300282C62 /* OpenSans-SemiBold.ttf in Resources */,
 				6E09145D282BA36700282C62 /* Localizable.strings in Resources */,
@@ -456,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E52ECFF28356E6200EDAC4E /* OLogoSwitch.swift in Sources */,
 				6E09148A282D255B00282C62 /* +UIView.swift in Sources */,
 				6E852F2C28342A1300D24B8F /* News.swift in Sources */,
 				6E852F292834297100D24B8F /* BaseViewModel.swift in Sources */,
@@ -470,6 +497,7 @@
 				6E091460282BA40F00282C62 /* +String.swift in Sources */,
 				6E091446282B9D3900282C62 /* AppDelegate.swift in Sources */,
 				6E091483282D120B00282C62 /* +UIFont.swift in Sources */,
+				6E52ECFD28356BC900EDAC4E /* FilterSearchViewController.swift in Sources */,
 				6E091448282B9D3900282C62 /* SceneDelegate.swift in Sources */,
 				6E852F2328341B1000D24B8F /* Router.swift in Sources */,
 				6E09148D282D7DE600282C62 /* SearchViewController.swift in Sources */,

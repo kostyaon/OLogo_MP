@@ -85,6 +85,7 @@ extension FilterViewController {
         applyButton.onTap = { [weak self] in
             guard let this = self else { return }
             print("On Apply Filter button")
+            this.navigationController?.pushViewController(FilterSearchViewController(), animated: true)
         }
     }
     

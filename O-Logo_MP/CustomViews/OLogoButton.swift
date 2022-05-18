@@ -65,7 +65,7 @@ extension OLogoButton {
     // @objc method's
     @objc func onButtonTap() {
         isSelected.toggle()
-        print("Buttton is \(isSelected)")
+        onTap?()
     }
     
     // Method's
