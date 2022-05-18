@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchView" customModule="O_Logo_MP" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="I2M-fH-wC4"/>
+                <outlet property="filterButton" destination="7UP-xl-qkg" id="EHi-bT-Id8"/>
+                <outlet property="searchBar" destination="oul-l5-R4o" id="oam-r8-elu"/>
+                <outlet property="sortButton" destination="o1e-A0-gvz" id="h0w-Kd-I5c"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="76"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iha-iR-0aK">
+                    <rect key="frame" x="16" y="10" width="361" height="46"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oul-l5-R4o">
+                            <rect key="frame" x="0.0" y="0.0" width="237" height="46"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                        </searchBar>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UP-xl-qkg" customClass="OLogoButton" customModule="O_Logo_MP" customModuleProvider="target">
+                            <rect key="frame" x="253" y="0.0" width="46" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="1cZ-f0-a0D"/>
+                                <constraint firstAttribute="width" secondItem="7UP-xl-qkg" secondAttribute="height" multiplier="1:1" id="VXH-hk-mnU"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <backgroundConfiguration key="background">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </backgroundConfiguration>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="onFilter:" destination="-1" eventType="touchUpInside" id="bW8-DW-hCj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1e-A0-gvz" customClass="OLogoButton" customModule="O_Logo_MP" customModuleProvider="target">
+                            <rect key="frame" x="315" y="0.0" width="46" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="o1e-A0-gvz" secondAttribute="height" multiplier="1:1" id="EZT-ck-tam"/>
+                                <constraint firstAttribute="width" constant="46" id="YcP-y2-HYM"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <backgroundConfiguration key="background">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </backgroundConfiguration>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="onSort:" destination="-1" eventType="touchUpInside" id="aAR-xx-rhA"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iha-iR-0aK" secondAttribute="trailing" constant="15" id="5nf-9s-7bD"/>
+                <constraint firstItem="iha-iR-0aK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="EdM-hI-f8S"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="iha-iR-0aK" secondAttribute="bottom" constant="15" id="OBg-Rm-9Jv"/>
+                <constraint firstItem="iha-iR-0aK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="pC5-gr-bfH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="115.94202898550725" y="-172.76785714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

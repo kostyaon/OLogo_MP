@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  O-Logo_MP
+
+  Created by Petrykevich, Kanstantsin on 11.05.22.
+  
+*/
+"tab_home" = "Home";
+"tab_news" = "News";
+"tab_search" = "Search";
+"tab_profile" = "Profile";
+"tab_more" = "More";
+"news_title" = "News";
+"search_placeholder" = "Search";
+"search_history_title" = "Search History";
+"clear_title" = "Clear";
+"filter_title" = "Filter";
+"filter_date_title" = "Date";
+"filter_search_title" = "Search in";
+"filter_from" = "From";
+"filter_to" = "To";
+"search_in_all" = "All";
+"filter_date_placeholder" = "yyyy-mm-dd";
+"apply_filter_button" = "Apply filter";
