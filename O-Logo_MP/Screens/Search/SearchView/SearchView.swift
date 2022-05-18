@@ -17,6 +17,10 @@ class SearchView: UIView {
     @IBOutlet weak var sortButton: OLogoButton!
     
     // MARK: - Properties
+    var onSearch: ((String) -> ())?
+    var searchQuery: String {
+        searchBar.text ?? ""
+    }
     private lazy var notifyView: OLogoNotificNumberView = {
         let notifyView = OLogoNotificNumberView()
         notifyView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,6 +50,13 @@ class SearchView: UIView {
         notifyView.configure(centerText: "\(number)")
     }
     
+    func searchBarFirstResponder() {
+        searchBar.becomeFirstResponder()
+    }
+    
+    func searchBarResignResponder() {
+        searchBar.resignFirstResponder()
+    }
 }
 
 // MARK: - Private
@@ -100,5 +111,12 @@ extension SearchView {
 // MARK: - UISearchBarDelegate
 extension SearchView: UISearchBarDelegate {
     
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, text.count > 0 else {
+            searchBar.resignFirstResponder()
+            return
+        }
+        onSearch?(text)
+        searchBar.resignFirstResponder()
+    }
 }

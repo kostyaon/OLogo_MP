@@ -49,6 +49,7 @@ extension Router: EndpointType {
     var parameters: Parameters? {
         switch self {
         case .searchIn(let query, let parameters, let from, let to, let sortBy, let pageNumber):
+            print("Page \(pageNumber)")
             var queryParameters = "title, description, content"
             if let parameters = parameters {
                 queryParameters = convertToQuery(parameters: parameters) ?? ""

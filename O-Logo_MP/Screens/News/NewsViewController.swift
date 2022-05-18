@@ -15,7 +15,6 @@ class NewsViewController: BaseViewController {
     
     // MARK: - Properties
     private let viewModel = NewsViewModel()
-    private var currentPage = 1
     private var totalNews = 0
     private var news: [NewsResponse.News] = []
     
@@ -30,7 +29,7 @@ class NewsViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        loadData(page: currentPage)
+        loadData()
     }
     
     // MARK: - Helper method's
@@ -42,6 +41,10 @@ private
 extension NewsViewController {
     
     // Properties
+    var currentPage: Int {
+        viewModel.currentPage
+    }
+    
     var numberOfSections: Int {
         return 1
     }
@@ -71,8 +74,8 @@ extension NewsViewController {
         }
     }
     
-    func loadData(page: Int?) {
-        viewModel.getHeadlineNews(page: page ?? 1)
+    func loadData() {
+        viewModel.getHeadlineNews()
     }
 }
 
@@ -94,8 +97,8 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == news.count - 1 && totalNews > news.count {
-            currentPage += 1
-            loadData(page: currentPage)
+            viewModel.currentPage += 1
+            loadData()
         }
         
         let cell = tableView.dequeueReusableCell(withType: NewsTableViewCell.self, for: indexPath)

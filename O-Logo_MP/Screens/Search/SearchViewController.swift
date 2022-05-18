@@ -15,12 +15,22 @@ class SearchViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
+    private var totalNews = 0
+    private var searchNews: [NewsResponse.News] = []
+    private let newsViewModel = NewsViewModel()
     
     // MARK: - Lifecycle method's
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        setupViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        searchView.becomeFirstResponder()
     }
     
     // MARK: - Helper method's
@@ -32,6 +42,10 @@ private
 extension SearchViewController {
     
     // Properties
+    var currentPage: Int {
+        newsViewModel.currentPage
+    }
+    
     var numberOfSections: Int {
         return 1
     }
@@ -39,6 +53,7 @@ extension SearchViewController {
     // Method's
     func setupUI() {
         setupTableView()
+        setupSearchView()
     }
     
     func setupTableView() {
@@ -48,6 +63,27 @@ extension SearchViewController {
         tableView.estimatedSectionHeaderHeight = 38
         tableView.separatorColor = .white
         tableView.contentInset = UIEdgeInsets(top: 17, left: 0, bottom: 0, right: 0)
+        tableView.register(nibWithClass: NewsTableViewCell.self)
+    }
+    
+    func setupSearchView() {
+        searchView.onSearch = { [weak self] searchQuery in
+            guard let this = self else { return }
+            this.loadData()
+        }
+    }
+    
+    func setupViewModel() {
+        newsViewModel.updateUI = { [weak self] in
+            guard let this = self else { return }
+            this.totalNews = this.newsViewModel.totalSearchNews ?? 0
+            this.searchNews += this.newsViewModel.searchNews ?? []
+            this.tableView.reloadData()
+        }
+    }
+    
+    func loadData() {
+        newsViewModel.getSearchWith(seqarchQuery: searchView.searchQuery)
     }
     
 }
@@ -62,13 +98,26 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 6
+            return searchNews.count
         default:
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == searchNews.count - 1 && totalNews > searchNews.count {
+            newsViewModel.currentPage += 1
+            loadData()
+        }
+        
+        if !searchNews.isEmpty {
+            let cell = tableView.dequeueReusableCell(withType: NewsTableViewCell.self, for: indexPath)
+            let news = searchNews[indexPath.row]
+            cell.configure(title: news.title, subtitle: news.description, imageURL: URL(string: news.image))
+            cell.selectionStyle = .none
+            return cell
+        }
+        
         let cell = UITableViewCell()
         let label = UILabel()
         label.backgroundColor = .clear
@@ -101,6 +150,6 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 51
+        return 113
     }
 }
