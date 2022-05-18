@@ -15,6 +15,8 @@ class NewsViewController: BaseViewController {
     
     // MARK: - Properties
     private let viewModel = NewsViewModel()
+    private var currentPage = 1
+    private var totalNews = 0
     private var news: [NewsResponse.News] = []
     
     // MARK: - Lifecycle method's
@@ -28,7 +30,7 @@ class NewsViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        loadData()
+        loadData(page: currentPage)
     }
     
     // MARK: - Helper method's
@@ -63,13 +65,14 @@ extension NewsViewController {
     func setupViewModel() {
         viewModel.updateUI = { [weak self] in
             guard let this = self else { return }
-            this.news = self?.viewModel.headlineNews ?? []
+            this.totalNews = this.viewModel.totalHeadlineNews ?? 0
+            this.news += this.viewModel.headlineNews ?? []
             this.tableView.reloadData()
         }
     }
     
-    func loadData() {
-        viewModel.getHeadlineNews(page: 1)
+    func loadData(page: Int?) {
+        viewModel.getHeadlineNews(page: page ?? 1)
     }
 }
 
@@ -90,6 +93,11 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == news.count - 1 && totalNews > news.count {
+            currentPage += 1
+            loadData(page: currentPage)
+        }
+        
         let cell = tableView.dequeueReusableCell(withType: NewsTableViewCell.self, for: indexPath)
         let cellNews = news[indexPath.row]
         cell.configure(title: cellNews.title, subtitle: cellNews.description, imageURL: URL(string: cellNews.image))
@@ -112,6 +120,6 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 108
+        return 113
     }
 }

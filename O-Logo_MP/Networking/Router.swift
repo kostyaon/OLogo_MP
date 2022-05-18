@@ -66,7 +66,7 @@ extension Router: EndpointType {
         case .topHeadlines(let pageNumber):
             return [
                 "max": 20,
-                "page": pageNumber ?? 1,
+                "page": pageNumber,
                 "token": ConfigValues.token ?? ""
             ]
         }

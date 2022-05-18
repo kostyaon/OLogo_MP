@@ -10,6 +10,7 @@ import Foundation
 class NewsViewModel: BaseViewModel {
     
     // Properties
+    var totalHeadlineNews: Int?
     var headlineNews: [NewsResponse.News]?
     
     // Method's
@@ -19,6 +20,7 @@ class NewsViewModel: BaseViewModel {
             case .failure(let error):
                 print("Error: \(error.localizedDescription)")
             case .success(let response):
+                self.totalHeadlineNews = response.totalArticles
                 self.headlineNews = response.articles
                 self.updateUI?()
             }
